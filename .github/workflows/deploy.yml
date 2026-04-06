@@ -1,0 +1,21 @@
+name: Remote SSH Deploy
+
+on:
+  push:
+    branches:
+      - main  # or your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying to VM
+        uses: appleboy/ssh-action@master
+        with:
+          host: 14.139.38.159
+          username: lohit
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/test
+            git pull origin main
+            # Add any restart commands below
