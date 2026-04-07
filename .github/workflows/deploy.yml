@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: Check runner
         run: echo "Hello from my laptop 🚀"
+      - name: Pull latest changes
+        run: git pull
